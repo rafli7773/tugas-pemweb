@@ -34,3 +34,40 @@ function login($data)
         }
     }
 }
+
+function handleKelas($query)
+{
+    global $conn;
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ($o = mysqli_fetch_assoc($result)) {
+        $rows[] = $o;
+    }
+    return $rows;
+}
+
+function tambah($data)
+{
+    global $conn;
+    $kelas = htmlspecialchars($data['kelas']);
+    $query = "INSERT INTO kelas VALUES('', '$kelas')";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function hapus($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM kelas WHERE id = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function ubah($data)
+{
+    global $conn;
+    $id = $data['id'];
+    $kelas = htmlspecialchars($data['kelas']);
+    $query = "UPDATE kelas SET kelas = '$kelas' WHERE id = $id";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}

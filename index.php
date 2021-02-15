@@ -1,8 +1,12 @@
 <?php
-session_start();
+include "functions.php";
 if (!isset($_SESSION['login'])) {
     header("location: login.php");
+    exit;
 }
+
+$kelas = handleKelas("SELECT * FROM kelas ORDER BY id DESC");
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +21,25 @@ if (!isset($_SESSION['login'])) {
 
 <body>
     <h1>Halaman Utama</h1>
+    <center>
+        <a href="tambah.php">Tambah</a>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <td>No</td>
+                <td>Kelas</td>
+                <td>Actions</td>
+            </tr>
+            <tr>
+                <?php $i = 1;
+                foreach ($kelas as $k) :
+                ?>
+                    <td><?= $i++; ?></td>
+                    <td><?= $k['kelas']; ?></td>
+                    <td><a href="hapus.php?id=<?= $k['id']; ?>">Hapus</a> <a href="ubah.php?id=<?= $k['id']; ?>">Ubah</a></td>
+            </tr>
+        <?php endforeach ?>
+        </table>
+    </center>
     <a href="logout.php">Logout</a>
 </body>
 
