@@ -54,7 +54,7 @@ if (isset($_POST['ubah'])) {
                             <input type="hidden" name="id" id="id" value="<?= $kelas['id']; ?>">
                             <div class="row">
                                 <div class="col input-field m12 s12">
-                                    <input type="text" class="validate" name="kelas" id="kelas" autocomplete="off" autofocus value="<?= $kelas['kelas']; ?>">
+                                    <input type="text" class="validate" name="kelas" id="kelas" autocomplete="off" required autofocus value="<?= $kelas['kelas']; ?>">
                                     <label for="kelas">Kelas</label>
                                 </div>
                                 <div class="col input-field m12 s12">

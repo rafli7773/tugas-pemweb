@@ -51,7 +51,7 @@ if (isset($_POST['tambah'])) {
                         <form method="post">
                             <div class="row">
                                 <div class="col input-field m12 s12">
-                                    <input type="text" class="validate" name="kelas" id="kelas" autofocus autocomplete="off">
+                                    <input type="text" class="validate" name="kelas" id="kelas" required autofocus autocomplete="off">
                                     <label for="kelas">Kelas</label>
                                 </div>
                                 <div class="col input-field m12 s12">

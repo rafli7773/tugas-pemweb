@@ -31,11 +31,11 @@ if (isset($_POST['login'])) {
                         <form action="" method="post">
                             <div class="row">
                                 <div class="col input-field m12 s12">
-                                    <input type="text" name="username" id="username" class="validate" autocomplete="off">
+                                    <input type="text" name="username" id="username" required class="validate" autocomplete="off">
                                     <label for="username">Username</label>
                                 </div>
                                 <div class="col input-field m12 s12">
-                                    <input type="password" name="password" id="password" class="validate">
+                                    <input type="password" name="password" id="password" required class="validate">
                                     <label for="password">Password</label>
                                 </div>
                             </div>

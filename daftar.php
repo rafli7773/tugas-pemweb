@@ -32,15 +32,15 @@ if (isset($_POST['daftar'])) {
                         <form action="" method="post">
                             <div class="row">
                                 <div class="col input-field m12 s12">
-                                    <input type="text" name="username" id="username" class="validate" autocomplete="off">
+                                    <input type="text" name="username" required id="username" class="validate" autocomplete="off">
                                     <label for="username">Username</label>
                                 </div>
                                 <div class="col input-field m12 s12">
-                                    <input type="password" name="password" id="password" class="validate">
+                                    <input type="password" name="password" required id="password" class="validate">
                                     <label for="password">Password</label>
                                 </div>
                                 <div class="col input-field m12 s12">
-                                    <input type="password" name="konfirmasiPassword" class="validate" id="konfirmasiPassword">
+                                    <input type="password" name="konfirmasiPassword" class="validate" required id="konfirmasiPassword">
                                     <label for="konfirmasiPassword">Konfirmasi Password</label>
                                 </div>
                             </div>
