@@ -11,10 +11,19 @@ function daftar($data)
     $password = $data['password'];
     $konfirmasiPassword = $data['konfirmasiPassword'];
 
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username'");
+    if (mysqli_num_rows($result)) {
+        $_SESSION['dipake'] = true;
+        header("location: daftar.php");
+        exit;
+    }
+
     if ($password === $konfirmasiPassword) {
         $password = password_hash($password, PASSWORD_DEFAULT);
         mysqli_query($conn, "INSERT INTO user VALUES('', '$username', '$password')");
         return mysqli_affected_rows($conn);
+    } else {
+        $_SESSION['passwordTidakSama'] = true;
     }
 }
 
@@ -29,9 +38,13 @@ function login($data)
     if (mysqli_num_rows($result)) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
-            $_SESSION['login'] = true;
+            $_SESSION['login'] = $row;
             header('location: index.php');
+        } else {
+            $_SESSION['salahLogin'] = true;
         }
+    } else {
+        $_SESSION['salahLogin'] = true;
     }
 }
 

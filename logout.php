@@ -2,7 +2,7 @@
 
 session_start();
 
-session_destroy();
 session_unset($_SESSION['login']);
+session_destroy();
 
 header("location: login.php");
